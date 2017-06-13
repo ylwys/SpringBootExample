@@ -1,0 +1,4 @@
+1.支持多端口集群，cluster下有具体的端口文件夹，每个端口文件夹下有xxx.conf文件和xxx.aof数据存储文件
+2.启动和关闭:runCluster.bat/stopCluster.bat
+3.可以用redisConfGen工程生成具体端口的xxx.conf文件
+4.连接客户端redis-cli.bat之后，可以用redis命令查看数据
