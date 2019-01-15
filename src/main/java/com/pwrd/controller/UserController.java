@@ -102,34 +102,14 @@ public class UserController {
     @RequestMapping("/test")
 //    @ResponseBody
     public void test(HttpServletRequest request, HttpServletResponse response, String a) {
-//        String a1 = request.getParameter("a");//这样也行
-//        System.out.println(idCounter.getIncreaseId(IdCounterNameEnum.USER));
-//        System.out.println(idCounter.getIncreaseId(IdCounterNameEnum.USER));
-//        System.out.println(idCounter.getIncreaseId(IdCounterNameEnum.USER));
-//        System.out.println(idCounter.getIncreaseId(IdCounterNameEnum.USER));
-//        System.out.println(idCounter.getIncreaseId(IdCounterNameEnum.USER));
-
-
         response.setHeader("content-type", "text/plain;charset=UTF-8");
         try (OutputStream outputStream = response.getOutputStream()) {
-//            JSONObject resultObj = new JSONObject();
-//            resultObj.put("resultCode", resultCode);
-//            resultObj.put("resultId", resultId);
-//            resultObj.put("resultMsg", resultMsg);
-//            if (jsonArray != null && jsonArray.size() > 0) {
-//                resultObj.put("resultData", jsonArray);
-//            }
-
             String returnStr = "阿斯蒂芬";
             byte[] dataByteArr = returnStr.getBytes("UTF-8");
             outputStream.write(dataByteArr);
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        System.out.println(redisStringDao.forValueGet("aaaa"));
-
-
-//        return "hello11111";
     }
 
     @RequestMapping("/findAllUser")
@@ -152,7 +132,7 @@ public class UserController {
         int level = Integer.parseInt(request.getParameter("level"));
         long userId = idCounter.getIncreaseId(IdCounterNameEnum.USER_ID_COUNTER);
 
-        User user = new User(account, password, level);
+        User user = new User(account, password, level,1);
         user.setId(userId);
         userService.addUser(user);
 
@@ -190,8 +170,7 @@ public class UserController {
 
     @RequestMapping("/")
     public String index(HttpServletRequest request, Map<String, Object> model) {
-        model.put("test", "aaaaaaa");
-        return PageKey.TEST.getPageName();
+        return PageKey.LOGIN.getPageName();
     }
 
     @RequestMapping("/login")

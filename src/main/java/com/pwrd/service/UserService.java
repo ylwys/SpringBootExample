@@ -2,6 +2,7 @@ package com.pwrd.service;
 
 
 import com.pwrd.dao.cache.UserCacheDao;
+import com.pwrd.dao.mysql.ItemDao;
 import com.pwrd.dao.mysql.UserDao;
 import com.pwrd.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,9 @@ public class UserService {
     @Autowired
     private UserCacheDao userCacheDao;
 
+    @Autowired
+    private ItemDao itemDao;
+
 
     //-----------------------mysql操作--------------------------------
 
@@ -34,7 +38,7 @@ public class UserService {
         String password = request.getParameter("password");
         int level = Integer.parseInt(request.getParameter("level"));
 
-        User user = new User(account, password, level);
+        User user = new User(account, password, level, 1);
         userDao.save(user);
 
         return "save success" + "new Id:" + user.getId();

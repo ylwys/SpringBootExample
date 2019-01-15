@@ -23,6 +23,8 @@ public class User extends BaseModel implements Serializable {
 
     private int level;
 
+    private int test;
+
     public User() {
     }
 
@@ -30,10 +32,11 @@ public class User extends BaseModel implements Serializable {
         this.id = id;
     }
 
-    public User(String account, String password, int level) {
+    public User(String account, String password, int level, int test) {
         this.account = account;
         this.password = password;
         this.level = level;
+        this.test = test;
     }
 
     public long getId() {
@@ -66,5 +69,13 @@ public class User extends BaseModel implements Serializable {
 
     public void setLevel(int level) {
         this.level = level;
+    }
+
+    public int getTest() {
+        return test;
+    }
+
+    public void setTest(int test) {
+        this.test = test;
     }
 }

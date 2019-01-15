@@ -9,7 +9,7 @@ public enum PageKey {
 
     LOGIN("/index", 0),
     ERROR("/error", 0),
-    TEST("/test", 0);
+    TEST("/aaa", 0);
 
     PageKey(String pageName, int level) {
         this.pageName = pageName;
