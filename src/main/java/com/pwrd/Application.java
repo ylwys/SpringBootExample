@@ -12,7 +12,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 /**
  * User: ylwys
  * Date: 2016/12/17
- * Time: 13:42
+ * Time: 13:423
  */
 @ComponentScan(value= "com.pwrd")
 @SpringBootApplication
